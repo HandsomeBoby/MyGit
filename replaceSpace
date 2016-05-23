@@ -1,0 +1,51 @@
+//将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+
+
+void replaceSpace(char *str, int length) {
+	if (str == NULL)//判空
+	{
+		return;
+	}
+
+	int count = 0;//计数器
+
+	int len = strlen(str);//计算字符串的大小
+
+	if (len>length)
+	{
+		return;
+	}
+
+	char * p = str;
+	while (*p != '\0')//计算新字符串的长度
+	{
+		if (*p == ' ')
+		{
+			count++;
+		}
+		p++;
+	}
+
+	int newlen = len + count * 2;//新字符串的大小
+
+	if (newlen>length)//不能超出范围
+	{
+		return;
+	}
+
+	int j = newlen;
+
+	for (int i = len; i >= 0; i--)
+	{
+		if (str[i] == ' ')
+		{
+			str[j--] = '0';
+			str[j--] = '2';
+			str[j--] = '%';
+		}
+		else
+		{
+			str[j--] = str[i];
+		}
+	}
+}
