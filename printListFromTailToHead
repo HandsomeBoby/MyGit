@@ -1,4 +1,4 @@
-//从尾到头输出链表
+
 /*
 *  struct ListNode {
 *        int val;
