@@ -1,0 +1,36 @@
+class Solution
+{
+public:
+	void push(int node) {
+		//把数据放入stack1中
+		stack1.push(node);
+
+	}
+
+	int pop() {
+		//如果stack2为空
+		if (stack2.empty())
+		{
+			//stack1不为空
+			//把stack1的元素压入stack2
+			while (!stack1.empty())
+			{
+				stack2.push(stack1.top());
+				stack1.pop();
+			}
+			//说明队列中无元素
+			if (stack2.empty())
+			{
+				return -1;
+			}
+		}
+		//取出stack2的栈顶元素，输出
+		int top = stack2.top();
+		stack2.pop();
+		return top;
+	}
+
+private:
+	stack<int> stack1;
+	stack<int> stack2;
+};
