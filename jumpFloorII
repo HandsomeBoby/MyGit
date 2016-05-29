@@ -1,0 +1,22 @@
+class Solution {
+public:
+	int jumpFloorII(int number) {
+		//n=1  一种跳法
+		//n=2  两种跳法
+		//f(n)=2*f(n-1)
+		if (number <= 0)
+		{
+			return 0;
+		}
+
+		else if (number <= 2)
+		{
+			return number;
+		}
+
+		else
+		{
+			return 2 * jumpFloorII(number - 1);
+		}
+	}
+};
