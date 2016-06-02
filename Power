@@ -1,0 +1,30 @@
+class Solution {
+public:
+	double Power(double base, int exponent) {
+		double num = 1.0;
+		//指数为0，返回1
+		if (exponent == 0)
+		{
+			return num;
+		}
+		//指数大于0，连乘
+		else if (exponent>0)
+		{
+			for (int i = 1; i <= exponent; i++)
+			{
+				num = num*base;
+			}
+		}
+		//指数小于0，结果为指数大于0的结果的倒数
+		else
+		{
+			int n = -exponent;
+			for (int i = 1; i <= n; i++)
+			{
+				num = num*base;
+			}
+			num = 1 / num;
+		}
+		return num;
+	}
+};
