@@ -1,0 +1,27 @@
+class Solution {
+public:
+	bool IsPopOrder(vector<int> pushV, vector<int> popV) {
+		if (pushV.size() == 0 || popV.size() == 0)
+		{
+			return false;
+		}
+		//借助辅助栈
+		stack<int> tmp;
+		//标记弹出序列的位置
+		int index = 0;
+		for (int i = 0; i<pushV.size(); i++)
+		{
+			//元素压入辅助栈
+			tmp.push(pushV[i]);
+			//如果辅助栈不为空并且栈顶元素等于弹出序列
+			while (tmp.size() != 0 && tmp.top() == popV[index])
+			{
+				tmp.pop();
+				index++;
+			}
+		}
+		//如果辅助栈为空，说明弹出序列正确
+		//如果不为空，说明不正确
+		return tmp.empty();
+	}
+};
